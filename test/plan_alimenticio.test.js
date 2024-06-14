@@ -22,11 +22,11 @@ beforeEach(() => {
     objetivo5 = new Objetivo(false); 
     objetivo4 = new Objetivo(false); 
     objetivo6 = new Objetivo(false); 
-    comida1 = new Comida(1);
-    comida2 = new Comida(1);
-    comida3 = new Comida(0);
-    comida4 = new Comida(0);
-    comida5 = new Comida(0);
+    comida1 = new Comida(1,60);
+    comida2 = new Comida(1,40);
+    comida3 = new Comida(0,60);
+    comida4 = new Comida(0,60);
+    comida5 = new Comida(0,55);
 })
 test("La cantidad de comidas del plan debe ser 4", () => {
 
@@ -107,4 +107,17 @@ test("La cantidad de comidas tipo DM debe ser 2", () =>{
     const valorObtenido = planAlimenticio1.cantidadTotalComidasAC();
     const valorEsperado = 3;
     expect(valorObtenido).toBe(valorEsperado);
+})
+
+test("Este plan es fuerte en proteinas", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida3);
+    planAlimenticio1.agregarComidas(comida4);
+    planAlimenticio1.agregarComidas(comida5);
+    
+    const valorObtenido = planAlimenticio1.esFuerteEnProteinas();
+    const valorEsperado = true;
+    expect(valorObtenido).toBe(valorEsperado);
+
 })

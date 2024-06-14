@@ -48,4 +48,9 @@ export class PlanAlimenticio{
         else calificacion = "Regular";
         return calificacion;
     }
+
+    esFuerteEnProteinas(){
+        let comidasAC = this.comidas.filter(c => c.tipo === 0);
+        return comidasAC.every(c => c.porcentajeProteinas() >= 50);
+    }
 }

@@ -8,4 +8,8 @@ export class Comida {
     constructor(tipo){
         this.tipo = tipo;
     }
+
+    porcentajeProteinas(){
+        return (this.ingredientes.filter(i => i.tipo = "proteina").length / this.ingredientes.length)/100;
+    }
 }
