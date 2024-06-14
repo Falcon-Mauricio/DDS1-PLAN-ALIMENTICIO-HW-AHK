@@ -9,6 +9,11 @@ let objetivo3;
 let objetivo5; 
 let objetivo4;
 let objetivo6; 
+let comida1;
+let comida2;
+let comida3;
+let comida4;
+let comida5;
 beforeEach(() => {
     planAlimenticio1 = new PlanAlimenticio();
     objetivo1 = new Objetivo(true);
@@ -17,12 +22,13 @@ beforeEach(() => {
     objetivo5 = new Objetivo(false); 
     objetivo4 = new Objetivo(false); 
     objetivo6 = new Objetivo(false); 
+    comida1 = new Comida(1);
+    comida2 = new Comida(1);
+    comida3 = new Comida(0);
+    comida4 = new Comida(0);
+    comida5 = new Comida(0);
 })
 test("La cantidad de comidas del plan debe ser 4", () => {
-    const comida1 = new Comida();
-    const comida2 = new Comida();
-    const comida3 = new Comida();
-    const comida4 = new Comida();
 
     planAlimenticio1.agregarComidas(comida1);
     planAlimenticio1.agregarComidas(comida2);
@@ -76,5 +82,29 @@ test("La calificacion del plan debe ser Execelente", () =>{
 
     const valorObtenido = planAlimenticio1.generarEvaluacion();
     const valorEsperado = "Regular"
+    expect(valorObtenido).toBe(valorEsperado);
+})
+
+test("La cantidad de comidas tipo DM debe ser 2", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida3);
+    planAlimenticio1.agregarComidas(comida4);
+    planAlimenticio1.agregarComidas(comida5);
+
+    const valorObtenido = planAlimenticio1.cantidadTotalComidasDM();
+    const valorEsperado = 2;
+    expect(valorObtenido).toBe(valorEsperado);
+})
+
+test("La cantidad de comidas tipo DM debe ser 2", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida3);
+    planAlimenticio1.agregarComidas(comida4);
+    planAlimenticio1.agregarComidas(comida5);
+
+    const valorObtenido = planAlimenticio1.cantidadTotalComidasAC();
+    const valorEsperado = 3;
     expect(valorObtenido).toBe(valorEsperado);
 })

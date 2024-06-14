@@ -16,6 +16,14 @@ export class PlanAlimenticio{
         return this.comidas.length;
     }
 
+    cantidadTotalComidasDM() {
+        return this.comidas.filter(c => c.tipo === 1).length;
+    }
+
+    cantidadTotalComidasAC() {
+        return this.comidas.filter(c => c.tipo === 0).length;
+    }
+
     cantidadDeObjetivosCumplidos(){
         return this.objetivos.filter(o => o.cumplido).length;
     }

@@ -1,7 +1,11 @@
 export class Comida {
     tipo;
     descripcion;
-    composicion;
+    ingredientes = [];
     colaciones = [];
     bebidas = [];
+
+    constructor(tipo){
+        this.tipo = tipo;
+    }
 }
