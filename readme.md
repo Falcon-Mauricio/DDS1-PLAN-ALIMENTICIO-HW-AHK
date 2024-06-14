@@ -1,34 +1,56 @@
-# Vuelos y Aeropuertos 
-### Contexto general 
-En esta oportunidad hemos sido contratados para diseñar y desarrollar un sistema de Gestión de Vuelos y Aeropuertos.  
-Una aerolínea ofrece vuelos para transportar pasajeros, en aviones, entre diferentes ciudades.  
-Cada vuelo parte de un aeropuerto de inicio y arriba a un aeropuerto destino. 
-Algunos vuelos pueden tener escalas intermedias. Los aeropuertos están localizados en ciudades, pudiendo tener una ciudad más de un aeropuerto.  
-A cada vuelo se le asigna un avión y una tripulación, la cual consta de 2 pilotos, 1 operador de comunicaciones, 2 comisarios de abordo y 4 azafatas.  
-Cada pasajero de un vuelo tiene asignado un asiento. 
+# Rico, Sano y Natural
+## Objetivo
+Se desea desarrollar un sistema que asista a los atletas de alto rendimiento con su preparación nutricional.
 
-## Requerimientos 
+### Profesionales y pacientes 
+El sistema será utilizado por los Profesionales (Nombre*, Apellido*, Especialidad*, Matrícula), encargados de diseñar el Plan Alimenticio, y por los Pacientes (Nombre*, Apellido*, Edad*, Sexo*, Disciplina*), encargados de seguir el plan.
 
-### El sistema debe informar: 
-**1**. La capacidad de un vuelo ocupada por pasajeros. 
+### Planes alimenticios 
+Cada vez que un Atleta comienza un Plan Alimenticio, el profesional asignado al plan registra los datos básicos del paciente (Edad, Peso Actual y Medida de cintura), y establece la duración del mismo. El plan puede ser realizado de forma semanal, quincenal o mensual. 
 
-**2**. La duración total aproximada de un vuelo, teniendo en cuenta que, de existir, en cada escala se demora un tiempo diferente. 
+### Objetivos del plan alimenticio
+Establecida la duración del Plan, se establecen una serie de objetivos a lograr.
 
-**3**. La cantidad de vuelos que partieron de un aeropuerto, así como también la cantidad de vuelos que a él llegaron, en un día determinado. 
+El profesional deberá poder ejecutar la funcionalidad de “generar evaluación”, que involucra revisar cada uno de los objetivos y generar una calificación. La calificación podrá ser:
+            Excelente: en caso de que todos los objetivos hayan sido cumplidos.
+            Muy buena: en caso de que se hayan cumplido más del 60%.
+            Buena: en caso de que se hayan cumplido entre el 50% y 60% de los objetivos.
+            Regular: para el resto de los casos.
 
-**4**. El aeropuerto que recibió menos vuelos en escalas.
+### Comidas del plan alimenticio
+Cada plan alimenticio consta de una N cantidad de comidas, distribuidas a razón de 4 comidas al día (Desayuno, Almuerzo, Merienda y Cena). 
+La cantidad total de comidas variará de acuerdo a la duración del plan:
+            Si el plan es semanal serán 28 comidas
+            Si es quincenal serán 60
+            Si es mensual 120
+Las comidas se pueden clasificar en dos tipos: Desayunos y Meriendas (DM), y Almuerzos y Cenas (AC).
 
-**5**. La cantidad de vuelos totales que realizó un pasajero.
+Para los DM, solo será necesario registrar una descripción de la comida (Ej: Tostadas con queso untable), sin embargo, para los AC será necesario además registrar la composición de las mismas. Un plato de AC está compuesto de la siguiente manera:
+            1 Proteína: Pollo, Carnes Rojas o Pescado
+            1 Carbohidrato: Fideos, Arroz, Quinoa, etc. ...
+            1 Porción de Vegetales: Vegetales verdes crudos o cocidos
 
-**6**. La cantidad de aeropuertos que tiene una ciudad.
+Dependiendo de las necesidades del atleta, la relación entre estos componentes puede variar. Por ejemplo, para aquellos atletas que requieran reducir su porcentaje de grasa corporal, la composición de su AC será de la siguiente manera: 30% Proteínas, 0% Carbohidratos y 70% Vegetales. Mientras que para aquellos que tengan como objetivo el desarrollo de masa muscular, la composición será similar la siguiente: 30% Proteínas, 20% Carbohidratos, 50% Vegetales.
 
-**7**. La ciudad que más pasajeros recibió en un día.
+### Colaciones del plan alimenticio
+El plan contempla, además, la ingesta de Colaciones: Comidas ligeras que se ingieren entre comidas. Cada plan tendrá asociada una lista de colaciones permitidas, asignadas por el profesional al momento de confeccionar el plan. Análogamente se realizará el mismo proceso para las bebidas.
+Una vez al mes, el Administrador de la plataforma realizará la carga o actualización de las colaciones y bebidas, lo que significa que el profesional no puede dar de alta nuevas colaciones y/o bebidas, sino que las selecciona de un listado pre-cargado.
 
-**8**. La cantidad de veces que un pasajero visitó una ciudad.
+## Requerimientos
+El Sistema debe:
+**1**. Permitir obtener la calificación final de un plan alimenticio, en base al cumplimiento de sus objetivos.
 
-**9**. La cantidad de vuelos que realizó una tripulación en un periodo de tiempo determinado (en meses). 
+**2**. Permitir saber la cantidad total de comidas de un plan alimenticio.
 
-**10**. La aerolínea con mayor cantidad de pasajeros en un mes determinado. 
+**3**. Permitir saber la cantidad de comidas de un tipo en particular (DM/AC) de un plan alimenticio.
 
-// El 10 pensar y opcional hacer
-// Posbile soulucion: RankerAerolineas -> Aerolineas -> vuelo -> cantidadDePasajeros
+**4**. Permitir saber si el plan alimenticio es “fuerte en proteínas”: un plan alimenticio es “fuerte en 
+
+**5**. proteínas” cuando el promedio de porcentaje de proteínas en todas las comidas AC es igual o superior al 50%.
+**6**. Permitir saber si el plan alimenticio es “bien verde”: un plan alimenticio es “bien verde” cuando el 
+
+**7**. promedio de porcentaje de vegetales en todas las comidas AC es superior al 35%.
+
+**8**. Permitir saber la cantidad total de colaciones permitidas en un plan alimenticio.
+
+**9**. Permitir saber la cantidad total de bebidas permitidas en un plan alimenticio.
