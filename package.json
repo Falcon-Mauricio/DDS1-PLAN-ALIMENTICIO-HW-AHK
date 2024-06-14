@@ -1,0 +1,25 @@
+{
+  "name": "dds1-plan-alimenticio-hw-ahk",
+  "version": "1.0.0",
+  "description": "Se desea desarrollar un sistema que asista a los atletas de alto rendimiento con su preparación nutricional.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Falcon-Mauricio/DDS1-PLAN-ALIMENTICIO-HW-AHK.git"
+  },
+  "author": "Mauricio Falcon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Falcon-Mauricio/DDS1-PLAN-ALIMENTICIO-HW-AHK/issues"
+  },
+  "homepage": "https://github.com/Falcon-Mauricio/DDS1-PLAN-ALIMENTICIO-HW-AHK#readme",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
