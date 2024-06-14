@@ -45,14 +45,10 @@ El Sistema debe:
 
 **3**. Permitir saber la cantidad de comidas de un tipo en particular (DM/AC) de un plan alimenticio.
 
-**4**. Permitir saber si el plan alimenticio es “fuerte en proteínas”: un plan alimenticio es “fuerte en 
+**4**. Permitir saber si el plan alimenticio es “fuerte en proteínas”: un plan alimenticio es “fuerte en proteínas” cuando el promedio de porcentaje de proteínas en todas las comidas AC es igual o superior al 50%.
 
-**5**. proteínas” cuando el promedio de porcentaje de proteínas en todas las comidas AC es igual o superior al 50%.
+**5**. Permitir saber si el plan alimenticio es “bien verde”: un plan alimenticio es “bien verde” cuando el promedio de porcentaje de vegetales en todas las comidas AC es superior al 35%.
 
-**6**. Permitir saber si el plan alimenticio es “bien verde”: un plan alimenticio es “bien verde” cuando el 
+**6**. Permitir saber la cantidad total de colaciones permitidas en un plan alimenticio.
 
-**7**. promedio de porcentaje de vegetales en todas las comidas AC es superior al 35%.
-
-**8**. Permitir saber la cantidad total de colaciones permitidas en un plan alimenticio.
-
-**9**. Permitir saber la cantidad total de bebidas permitidas en un plan alimenticio.
+**7**. Permitir saber la cantidad total de bebidas permitidas en un plan alimenticio.
