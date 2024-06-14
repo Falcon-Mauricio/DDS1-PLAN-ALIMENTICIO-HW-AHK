@@ -48,6 +48,7 @@ El Sistema debe:
 **4**. Permitir saber si el plan alimenticio es “fuerte en proteínas”: un plan alimenticio es “fuerte en 
 
 **5**. proteínas” cuando el promedio de porcentaje de proteínas en todas las comidas AC es igual o superior al 50%.
+
 **6**. Permitir saber si el plan alimenticio es “bien verde”: un plan alimenticio es “bien verde” cuando el 
 
 **7**. promedio de porcentaje de vegetales en todas las comidas AC es superior al 35%.
