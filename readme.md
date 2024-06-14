@@ -38,6 +38,7 @@ Una vez al mes, el Administrador de la plataforma realizará la carga o actualiz
 
 ## Requerimientos
 El Sistema debe:
+
 **1**. Permitir obtener la calificación final de un plan alimenticio, en base al cumplimiento de sus objetivos.
 
 **2**. Permitir saber la cantidad total de comidas de un plan alimenticio.
