@@ -22,11 +22,11 @@ beforeEach(() => {
     objetivo5 = new Objetivo(false); 
     objetivo4 = new Objetivo(false); 
     objetivo6 = new Objetivo(false); 
-    comida1 = new Comida(1,60);
-    comida2 = new Comida(1,40);
-    comida3 = new Comida(0,60);
-    comida4 = new Comida(0,60);
-    comida5 = new Comida(0,55);
+    comida1 = new Comida("DM",60);
+    comida2 = new Comida("DM",40);
+    comida3 = new Comida("AC",60);
+    comida4 = new Comida("AC",60);
+    comida5 = new Comida("AC",55);
 })
 test("La cantidad de comidas del plan debe ser 4", () => {
 
@@ -62,7 +62,7 @@ test("La calificacion del plan debe ser Muy buena", () =>{
     expect(valorObtenido).toBe(valorEsperado);
 })
 
-test("La calificacion del plan debe ser buena", () =>{
+test("La calificacion del plan debe ser Buena", () =>{
     planAlimenticio1.agregarObjetivo(objetivo1);
     planAlimenticio1.agregarObjetivo(objetivo2);
     planAlimenticio1.agregarObjetivo(objetivo3);
@@ -75,7 +75,7 @@ test("La calificacion del plan debe ser buena", () =>{
     expect(valorObtenido).toBe(valorEsperado);
 })
 
-test("La calificacion del plan debe ser Execelente", () =>{
+test("La calificacion del plan debe ser Regular", () =>{
     planAlimenticio1.agregarObjetivo(objetivo6);
     planAlimenticio1.agregarObjetivo(objetivo5);
     planAlimenticio1.agregarObjetivo(objetivo4);
@@ -97,7 +97,7 @@ test("La cantidad de comidas tipo DM debe ser 2", () =>{
     expect(valorObtenido).toBe(valorEsperado);
 })
 
-test("La cantidad de comidas tipo DM debe ser 2", () =>{
+test("La cantidad de comidas tipo AC debe ser 3", () =>{
     planAlimenticio1.agregarComidas(comida1);
     planAlimenticio1.agregarComidas(comida2);
     planAlimenticio1.agregarComidas(comida3);

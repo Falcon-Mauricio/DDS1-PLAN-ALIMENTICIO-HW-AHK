@@ -17,11 +17,11 @@ export class PlanAlimenticio{
     }
 
     cantidadTotalComidasDM() {
-        return this.comidas.filter(c => c.tipo === 1).length;
+        return this.comidas.filter(c => c.tipo === "DM").length;
     }
 
     cantidadTotalComidasAC() {
-        return this.comidas.filter(c => c.tipo === 0).length;
+        return this.comidas.filter(c => c.tipo === "AC").length;
     }
 
     cantidadDeObjetivosCumplidos(){
