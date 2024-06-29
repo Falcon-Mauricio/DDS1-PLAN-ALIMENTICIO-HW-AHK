@@ -3,7 +3,9 @@ export class Ingrediente {
     tipo;
     porcentaje;
 
-    constructor(tipo){
+    constructor(nombre, tipo, porcentaje){
+        this.nombre = nombre;
         this.tipo = tipo;
+        this.porcentaje = porcentaje;
     }
 }

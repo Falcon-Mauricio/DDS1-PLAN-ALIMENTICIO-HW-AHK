@@ -16,13 +16,10 @@ export class PlanAlimenticio{
         return this.comidas.length;
     }
 
-    cantidadTotalComidasDM() {
-        return this.comidas.filter(c => c.tipo === "DM").length;
+    cantidadTotalComidastipo(tipoDeComida) {
+        return this.comidas.filter(c => c.tipo === tipoDeComida).length;
     }
 
-    cantidadTotalComidasAC() {
-        return this.comidas.filter(c => c.tipo === "AC").length;
-    }
 
     cantidadDeObjetivosCumplidos(){
         return this.objetivos.filter(o => o.cumplido).length;
@@ -50,7 +47,7 @@ export class PlanAlimenticio{
     }
 
     esFuerteEnProteinas(){
-        let comidasAC = this.comidas.filter(c => c.tipo === 0);
+        let comidasAC = this.comidas.filter(c => c.tipo === "AC");
         return comidasAC.every(c => c.porcentajeProteinas() >= 50);
     }
 }

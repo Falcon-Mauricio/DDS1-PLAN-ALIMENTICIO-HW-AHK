@@ -1,6 +1,7 @@
 import { PlanAlimenticio } from "../entities/plan_alimenticio";
 import { Comida } from "../entities/comida";
 import { Objetivo } from "../entities/objetivo";
+import { Ingrediente } from "../entities/ingrediente";
 //2. Permitir saber la cantidad total de comidas de un plan alimenticio.
 let planAlimenticio1;
 let objetivo1;
@@ -14,19 +15,41 @@ let comida2;
 let comida3;
 let comida4;
 let comida5;
+let ingrediente1;
+let ingrediente2;
+let ingrediente3;
+let ingrediente4;
+let ingrediente5;
+let ingrediente6;
+let ingrediente7;
+let ingrediente8;
+let ingrediente9;
+let ingrediente10;
+let ingrediente11;
 beforeEach(() => {
-    planAlimenticio1 = new PlanAlimenticio();
     objetivo1 = new Objetivo(true);
     objetivo2 = new Objetivo(true);
     objetivo3 = new Objetivo(true); 
     objetivo5 = new Objetivo(false); 
     objetivo4 = new Objetivo(false); 
     objetivo6 = new Objetivo(false); 
-    comida1 = new Comida("DM",60);
-    comida2 = new Comida("DM",40);
-    comida3 = new Comida("AC",60);
-    comida4 = new Comida("AC",60);
-    comida5 = new Comida("AC",55);
+    ingrediente1 = new Ingrediente("Pollo", "Proteina", 60);
+    ingrediente2 = new Ingrediente("Asado", "Proteina", 70);
+    ingrediente3 = new Ingrediente("Pescado", "Proteina", 40);
+    ingrediente4 = new Ingrediente("Carne Picada", "Proteina", 20);
+    ingrediente5 = new Ingrediente("Fideos", "Carbohidratos", 80);
+    ingrediente6 = new Ingrediente("Arroz", "Carbohidratos", 30);
+    ingrediente7 = new Ingrediente("Quinoa", "Carbohidratos", 50);
+    ingrediente8 = new Ingrediente("Arbeja", "Vegetal", 10);
+    ingrediente9 = new Ingrediente("Lechuga", "Vegetal", 25);
+    ingrediente10 = new Ingrediente("Tomate", "Vegetal", 25);
+    ingrediente11 = new Ingrediente("Limón", "Vegetal",5)
+    comida1 = new Comida("DM","Huevos y Pan");
+    comida2 = new Comida("DM","Chocolatada");
+    comida3 = new Comida("AC","Pollo con ensalada");
+    comida4 = new Comida("AC","");
+    comida5 = new Comida("AC","");
+    planAlimenticio1 = new PlanAlimenticio();
 })
 test("La cantidad de comidas del plan debe ser 4", () => {
 
@@ -92,7 +115,7 @@ test("La cantidad de comidas tipo DM debe ser 2", () =>{
     planAlimenticio1.agregarComidas(comida4);
     planAlimenticio1.agregarComidas(comida5);
 
-    const valorObtenido = planAlimenticio1.cantidadTotalComidasDM();
+    const valorObtenido = planAlimenticio1.cantidadTotalComidastipo("DM");
     const valorEsperado = 2;
     expect(valorObtenido).toBe(valorEsperado);
 })
@@ -104,7 +127,7 @@ test("La cantidad de comidas tipo AC debe ser 3", () =>{
     planAlimenticio1.agregarComidas(comida4);
     planAlimenticio1.agregarComidas(comida5);
 
-    const valorObtenido = planAlimenticio1.cantidadTotalComidasAC();
+    const valorObtenido = planAlimenticio1.cantidadTotalComidastipo("AC");
     const valorEsperado = 3;
     expect(valorObtenido).toBe(valorEsperado);
 })
