@@ -155,7 +155,6 @@ test("Este plan no es fuerte en proteinas y debe ser false", () =>{
     const valorObtenido = planAlimenticio1.esfuerteEnProteinas();
     const valorEsperado = false;
     expect(valorObtenido).toBe(valorEsperado);
-
 })
 
 test("Este plan es Bien Verde y debe ser true", () =>{
@@ -167,5 +166,16 @@ test("Este plan es Bien Verde y debe ser true", () =>{
     const valorObtenido = planAlimenticio1.esBienVerde();
     const valorEsperado = true;
     expect(valorObtenido).toBe(valorEsperado);
+})
 
+test("Este plan no es Bien Verde y debe ser false", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida3);
+    planAlimenticio1.agregarComidas(comida4);
+    planAlimenticio1.agregarComidas(comida5);
+    
+    const valorObtenido = planAlimenticio1.esBienVerde();
+    const valorEsperado = false;
+    expect(valorObtenido).toBe(valorEsperado);
 })
