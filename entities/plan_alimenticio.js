@@ -1,11 +1,22 @@
 export class PlanAlimenticio{
-    datos_usuario = [];
+    paciente;
+    profesional;
     duracion;
     objetivos = [];   
     comidas = [];
+    colaciones = [];
+    bebidas = [];
 
     agregarComidas(comida){
         this.comidas.push(comida);
+    }
+
+    agregarColacion(colacion) {
+        this.colaciones.push(colacion);
+    }
+
+    agregarBebida(bebida) {
+        this.bebidas.push(bebida);
     }
 
     agregarObjetivo(objetivo){
@@ -20,6 +31,13 @@ export class PlanAlimenticio{
         return this.comidas.filter(c => c.tipo === tipoDeComida).length;
     }
 
+    cantidadTotalDeColaciones() {
+        return this.colaciones.length;
+    }
+
+    cantidadTotalDeBebidas() {
+        return this.bebidas.length;
+    }
 
     cantidadDeObjetivosCumplidos(){
         return this.objetivos.filter(o => o.cumplido).length;

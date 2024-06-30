@@ -1,4 +1,7 @@
 export class Colacion {
     nombre;
-    permiso;
+
+    constructor(nombre){
+        this.nombre = nombre;
+    }
 }

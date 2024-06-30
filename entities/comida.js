@@ -2,8 +2,6 @@ export class Comida {
     tipo;
     descripcion;
     ingredientes = [];
-    colaciones = [];
-    bebidas = [];
 
     constructor(tipo, descripcion, ingredientes = []){
         this.tipo = tipo;

@@ -1,4 +1,7 @@
 export class Bebida {
     nombre;
-    permiso;
+
+    constructor(nombre){
+        this.nombre = nombre;
+    }
 }
