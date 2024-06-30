@@ -5,7 +5,7 @@ export class Objetivo {
     constructor(cumplido){
         this.cumplido = cumplido;
     }
-    
+
     modificarDescripcion(texto){
         this.descripcion = texto;
     }

@@ -7,7 +7,7 @@ export class PlanAlimenticio{
     colaciones = [];
     bebidas = [];
 
-    agregarComidas(comida){
+    agregarComida(comida){
         this.comidas.push(comida);
     }
 
