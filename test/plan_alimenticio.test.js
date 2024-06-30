@@ -4,7 +4,7 @@ import { Objetivo } from "../entities/objetivo";
 import { Ingrediente } from "../entities/ingrediente";
 import { Colacion} from "../entities/colacion";
 import { Bebida } from "../entities/bebida";
-//2. Permitir saber la cantidad total de comidas de un plan alimenticio.
+
 let planAlimenticio1;
 let objetivo1;
 let objetivo2;
@@ -36,6 +36,7 @@ let bebida1;
 let bebida2;
 let bebida3;
 let bebida4;
+
 beforeEach(() => {
     objetivo1 = new Objetivo(true);
     objetivo2 = new Objetivo(true);
@@ -69,18 +70,8 @@ beforeEach(() => {
     bebida4 = new Bebida("Agus Saborizada");
     planAlimenticio1 = new PlanAlimenticio();
 })
-test("La cantidad de comidas del plan debe ser 4", () => {
-
-    planAlimenticio1.agregarComida(comida1);
-    planAlimenticio1.agregarComida(comida2);
-    planAlimenticio1.agregarComida(comida3);
-    planAlimenticio1.agregarComida(comida4);
-    
-    expect(planAlimenticio1.cantidadTotalComidas()).toBe(4);
-})
-
+//1. Permitir obtener la calificación final de un plan alimenticio, en base al cumplimiento de sus objetivos.
 test("La calificacion del plan debe ser Execelente", () =>{
-
     planAlimenticio1.agregarObjetivo(objetivo1);
     planAlimenticio1.agregarObjetivo(objetivo2);
     planAlimenticio1.agregarObjetivo(objetivo3);
@@ -89,7 +80,6 @@ test("La calificacion del plan debe ser Execelente", () =>{
 })
 
 test("La calificacion del plan debe ser Muy buena", () =>{
-
     planAlimenticio1.agregarObjetivo(objetivo1);
     planAlimenticio1.agregarObjetivo(objetivo2);
     planAlimenticio1.agregarObjetivo(objetivo4);
@@ -115,7 +105,16 @@ test("La calificacion del plan debe ser Regular", () =>{
 
     expect(planAlimenticio1.generarEvaluacion()).toBe("Regular");
 })
-
+//2. Permitir saber la cantidad total de comidas de un plan alimenticio.
+test("La cantidad de comidas del plan debe ser 4", () => {
+    planAlimenticio1.agregarComida(comida1);
+    planAlimenticio1.agregarComida(comida2);
+    planAlimenticio1.agregarComida(comida3);
+    planAlimenticio1.agregarComida(comida4);
+    
+    expect(planAlimenticio1.cantidadTotalComidas()).toBe(4);
+})
+//3. Permitir saber la cantidad de comidas de un tipo en particular (DM/AC) de un plan alimenticio.
 test("La cantidad de comidas tipo DM debe ser 2", () =>{
     planAlimenticio1.agregarComida(comida1);
     planAlimenticio1.agregarComida(comida2);
@@ -135,7 +134,11 @@ test("La cantidad de comidas tipo AC debe ser 3", () =>{
 
     expect(planAlimenticio1.cantidadTotalComidastipo("AC")).toBe(3);
 })
-
+/**
+ * 4. Permitir saber si el plan alimenticio es “fuerte en proteínas”: 
+ * un plan alimenticio es “fuerte en proteínas” cuando el promedio de porcentaje de proteínas en todas 
+ * las comidas AC es igual o superior al 50%.
+ */
 test("Este plan es fuerte en proteinas y debe ser true", () =>{
     planAlimenticio1.agregarComida(comida1);
     planAlimenticio1.agregarComida(comida2);
@@ -154,7 +157,11 @@ test("Este plan no es fuerte en proteinas y debe ser false", () =>{
     
     expect(planAlimenticio1.esfuerteEnProteinas()).toBe(false);
 })
-
+/**
+ * 5. Permitir saber si el plan alimenticio es “bien verde”: 
+ * un plan alimenticio es “bien verde” cuando el promedio de porcentaje de vegetales en todas 
+ * las comidas AC es superior al 35%.
+ */
 test("Este plan es Bien Verde y debe ser true", () =>{
     planAlimenticio1.agregarComida(comida1);
     planAlimenticio1.agregarComida(comida2);
@@ -174,7 +181,7 @@ test("Este plan no es Bien Verde y debe ser false", () =>{
     
     expect(planAlimenticio1.esBienVerde()).toBe(false);
 })
-
+//6. Permitir saber la cantidad total de colaciones permitidas en un plan alimenticio.
 test("Se le agrega al plan alimenticio 3 colaciones y me tiene que devolver 3", () =>{
     planAlimenticio1.agregarColacion(colacion1);
     planAlimenticio1.agregarColacion(colacion2);
@@ -182,7 +189,7 @@ test("Se le agrega al plan alimenticio 3 colaciones y me tiene que devolver 3", 
 
     expect(planAlimenticio1.cantidadTotalDeColaciones()).toBe(3);
 });
-
+//7. Permitir saber la cantidad total de bebidas permitidas en un plan alimenticio.
 test("Se le agrega al plan alimenticio 4 bebidas y me tiene que devolver 4", () =>{
     planAlimenticio1.agregarBebida(bebida1);
     planAlimenticio1.agregarBebida(bebida2);
