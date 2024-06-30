@@ -14,11 +14,14 @@ export class Comida {
         }
     }
 
-    agregarIngrediente(ingrediente){
-        this.ingredientes.push(ingrediente);
-    }
-
-    porcentajeProteinas(){
-        return (this.ingredientes.tipo === "proteina")
+    obtenerPorcentajeDe(tipoDeIngrediente) {
+        const ingredientesDelTipo = this.ingredientes.filter(ingrediente => ingrediente.tipo === tipoDeIngrediente);
+        let porcentajeTotal = 0;
+    
+        ingredientesDelTipo.forEach(ingrediente => {
+            porcentajeTotal += ingrediente.porcentaje;
+        });
+    
+        return porcentajeTotal;
     }
 }

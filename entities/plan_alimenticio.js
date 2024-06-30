@@ -46,8 +46,13 @@ export class PlanAlimenticio{
         return calificacion;
     }
 
-    esFuerteEnProteinas(){
-        let comidasAC = this.comidas.filter(c => c.tipo === "AC");
-        return comidasAC.every(c => c.porcentajeProteinas() >= 50);
+    esfuerteEnProteinas() {
+        const comidasAC = this.comidas.filter(comida => comida.tipo === "AC");
+        return comidasAC.every(comida => comida.obtenerPorcentajeDe("Proteina") >= 50);
+    }
+
+    esBienVerde() {
+        const comidasAC = this.comidas.filter(comida => comida.tipo === "AC");
+        return comidasAC.every(comida => comida.obtenerPorcentajeDe("Vegetal") >= 35);
     }
 }

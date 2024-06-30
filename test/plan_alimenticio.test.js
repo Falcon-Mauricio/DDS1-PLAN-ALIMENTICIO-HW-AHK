@@ -15,17 +15,18 @@ let comida2;
 let comida3;
 let comida4;
 let comida5;
-let ingrediente1;
-let ingrediente2;
-let ingrediente3;
-let ingrediente4;
-let ingrediente5;
-let ingrediente6;
-let ingrediente7;
-let ingrediente8;
-let ingrediente9;
-let ingrediente10;
-let ingrediente11;
+let comida6;
+let ingredientePollo;
+let ingredienteAsado;
+let ingredientePescado;
+let ingredienteCarnePicada;
+let ingredienteFideos;
+let ingredienteArroz;
+let ingredienteQuinoa;
+let ingredienteArbeja;
+let ingredienteLechuga;
+let ingredienteTomate;
+let ingredienteLimon;
 beforeEach(() => {
     objetivo1 = new Objetivo(true);
     objetivo2 = new Objetivo(true);
@@ -33,22 +34,23 @@ beforeEach(() => {
     objetivo5 = new Objetivo(false); 
     objetivo4 = new Objetivo(false); 
     objetivo6 = new Objetivo(false); 
-    ingrediente1 = new Ingrediente("Pollo", "Proteina", 60);
-    ingrediente2 = new Ingrediente("Asado", "Proteina", 70);
-    ingrediente3 = new Ingrediente("Pescado", "Proteina", 40);
-    ingrediente4 = new Ingrediente("Carne Picada", "Proteina", 20);
-    ingrediente5 = new Ingrediente("Fideos", "Carbohidratos", 80);
-    ingrediente6 = new Ingrediente("Arroz", "Carbohidratos", 30);
-    ingrediente7 = new Ingrediente("Quinoa", "Carbohidratos", 50);
-    ingrediente8 = new Ingrediente("Arbeja", "Vegetal", 10);
-    ingrediente9 = new Ingrediente("Lechuga", "Vegetal", 25);
-    ingrediente10 = new Ingrediente("Tomate", "Vegetal", 25);
-    ingrediente11 = new Ingrediente("Limón", "Vegetal",5)
-    comida1 = new Comida("DM","Huevos y Pan");
-    comida2 = new Comida("DM","Chocolatada");
-    comida3 = new Comida("AC","Pollo con ensalada");
-    comida4 = new Comida("AC","");
-    comida5 = new Comida("AC","");
+    ingredientePollo = new Ingrediente("Pollo", "Proteina", 60);
+    ingredienteAsado = new Ingrediente("Asado", "Proteina", 50);
+    ingredientePescado = new Ingrediente("Pescado", "Proteina", 40);
+    ingredienteCarnePicada = new Ingrediente("Carne Picada", "Proteina", 20);
+    ingredienteFideos = new Ingrediente("Fideos", "Carbohidratos", 80);
+    ingredienteArroz = new Ingrediente("Arroz", "Carbohidratos", 30);
+    ingredienteQuinoa = new Ingrediente("Quinoa", "Carbohidratos", 50);
+    ingredienteArbeja = new Ingrediente("Arbeja", "Vegetal", 10);
+    ingredienteLechuga = new Ingrediente("Lechuga", "Vegetal", 25);
+    ingredienteTomate = new Ingrediente("Tomate", "Vegetal", 25);
+    ingredienteLimon = new Ingrediente("Limón", "Vegetal",5)
+    comida1 = new Comida("DM", "Huevos con Pan");
+    comida2 = new Comida("DM", "Yogurt con galletitas");
+    comida3 = new Comida("AC", "Pollo con arroz y arbeja", [ingredientePollo, ingredienteArroz, ingredienteArbeja]);
+    comida4 = new Comida("AC", "Asado con ensalada", [ingredienteAsado, ingredienteLechuga, ingredienteTomate]);
+    comida5 = new Comida("AC", "Fideos con tuco", [ingredienteFideos, ingredienteCarnePicada]);
+    comida6 = new Comida("AC", "Pescado con quinoa e ingrediente especial",[ingredientePescado, ingredienteQuinoa, ingredienteLimon]);
     planAlimenticio1 = new PlanAlimenticio();
 })
 test("La cantidad de comidas del plan debe ser 4", () => {
@@ -132,14 +134,37 @@ test("La cantidad de comidas tipo AC debe ser 3", () =>{
     expect(valorObtenido).toBe(valorEsperado);
 })
 
-test("Este plan es fuerte en proteinas", () =>{
+test("Este plan es fuerte en proteinas y debe ser true", () =>{
     planAlimenticio1.agregarComidas(comida1);
     planAlimenticio1.agregarComidas(comida2);
     planAlimenticio1.agregarComidas(comida3);
     planAlimenticio1.agregarComidas(comida4);
+    
+    const valorObtenido = planAlimenticio1.esfuerteEnProteinas();
+    const valorEsperado = true;
+    expect(valorObtenido).toBe(valorEsperado);
+
+})
+
+test("Este plan no es fuerte en proteinas y debe ser false", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida3);
     planAlimenticio1.agregarComidas(comida5);
     
-    const valorObtenido = planAlimenticio1.esFuerteEnProteinas();
+    const valorObtenido = planAlimenticio1.esfuerteEnProteinas();
+    const valorEsperado = false;
+    expect(valorObtenido).toBe(valorEsperado);
+
+})
+
+test("Este plan es Bien Verde y debe ser true", () =>{
+    planAlimenticio1.agregarComidas(comida1);
+    planAlimenticio1.agregarComidas(comida2);
+    planAlimenticio1.agregarComidas(comida4);
+    planAlimenticio1.agregarComidas(comida4);
+    
+    const valorObtenido = planAlimenticio1.esBienVerde();
     const valorEsperado = true;
     expect(valorObtenido).toBe(valorEsperado);
 
