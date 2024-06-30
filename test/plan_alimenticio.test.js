@@ -4,8 +4,10 @@ import { Objetivo } from "../entities/objetivo";
 import { Ingrediente } from "../entities/ingrediente";
 import { Colacion} from "../entities/colacion";
 import { Bebida } from "../entities/bebida";
+import { Profesional } from "../entities/profesional";
 
 let planAlimenticio1;
+let profesional1;
 let objetivo1;
 let objetivo2;
 let objetivo3; 
@@ -68,7 +70,8 @@ beforeEach(() => {
     bebida2 = new Bebida("Jugo");
     bebida3 = new Bebida("Agua");
     bebida4 = new Bebida("Agus Saborizada");
-    planAlimenticio1 = new PlanAlimenticio();
+    profesional1 = new Profesional("Juan", "Dario", "Nutricionista");
+    planAlimenticio1 = new PlanAlimenticio(profesional1);
 })
 //1. Permitir obtener la calificación final de un plan alimenticio, en base al cumplimiento de sus objetivos.
 test("La calificacion del plan debe ser Execelente", () =>{

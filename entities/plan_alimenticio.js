@@ -6,7 +6,10 @@ export class PlanAlimenticio{
     comidas = [];
     colaciones = [];
     bebidas = [];
-
+    
+    constructor(profesional){
+        this.profesional = profesional;
+    }
     agregarComida(comida){
         this.comidas.push(comida);
     }
